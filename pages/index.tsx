@@ -7,19 +7,25 @@ import Widgets from "../src/components/Widgets";
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className=" lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
-        <title>Twitter 2.0</title>
+        <title>Twitter Copy</title>
         <link
           rel="icon"
-          href="/favicon.ico"
+          href="https://links.papareact.com/drq"
         />
       </Head>
 
-      <main>
-        <Sidebar />
-        <Feed />
-        <Widgets />
+      <main className="grid grid-cols-9">
+        <div className=" col-span-2">
+          <Sidebar />
+        </div>
+        <div className=" col-span-7 lg:col-span-5 border-x">
+          <Feed />
+        </div>
+        <div className=" col-span-2 hidden lg:inline ">
+          <Widgets />
+        </div>
       </main>
     </div>
   );
