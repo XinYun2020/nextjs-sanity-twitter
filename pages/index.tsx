@@ -33,11 +33,11 @@ const Home: NextPage = () => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // create a type tweets
-  const tweets = await fetchTweets();
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   // create a type tweets
+//   const tweets = await fetchTweets();
 
-  return {
-    props: {},
-  };
-};
+//   return {
+//     props: {},
+//   };
+// };
