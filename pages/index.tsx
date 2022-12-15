@@ -29,7 +29,7 @@ const Home = ({ tweets }: Props) => {
           <Sidebar />
         </div>
         <div className=" col-span-7 border-x lg:col-span-5">
-          <Feed />
+          <Feed tweets={tweets} />
         </div>
         <div className=" col-span-2 hidden lg:inline ">
           <Widgets />

@@ -1,8 +1,14 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { Tweet } from "../../typings";
 import TweetBox from "./TweetBox";
+import TweetComponent from "../components/Tweet";
 
-const Feed = () => {
+interface Feed {
+  tweets: Tweet[];
+}
+
+const Feed = ({ tweets }: Props) => {
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -11,6 +17,18 @@ const Feed = () => {
       </div>
       <div className="">
         <TweetBox />
+      </div>
+
+      {/* FEED */}
+      <div className="">
+        {tweets.map((tweet) => (
+          <>
+            <TweetComponent
+              key={tweet._id}
+              tweet={tweet}
+            />
+          </>
+        ))}
       </div>
     </div>
   );
