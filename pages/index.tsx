@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 import Feed from "../src/components/Feed";
 import Sidebar from "../src/components/Sidebar";
 import Widgets from "../src/components/Widgets";
@@ -23,6 +24,7 @@ const Home = ({ tweets }: Props) => {
           href="https://links.papareact.com/drq"
         />
       </Head>
+      <Toaster />
 
       <main className="grid grid-cols-9">
         <div className=" col-span-2">
