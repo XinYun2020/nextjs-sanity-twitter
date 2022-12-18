@@ -26,7 +26,7 @@ const Tweet = ({ tweet }: Prop) => {
     refreshComments();
   }, []);
 
-  // console.log(comments);
+  console.log("🚀 ~ file: Tweet.tsx:18 ~ Tweet ~ comments", comments);
 
   return (
     <div className="flex flex-col space-x-3 border-y border-gray-100 p-5">
@@ -79,6 +79,29 @@ const Tweet = ({ tweet }: Prop) => {
           <ArrowUpTrayIcon className="h-5 w-5" />
         </div>
       </div>
+
+      {/* Comment Box Logic */}
+      {comments?.length > 0 && (
+        <div>
+          {comments.map((comment) => (
+            <div key={comment._id}>
+              <img
+                src={comment.profileImg}
+                className="h-7 w-7 rounded-full object-cover"
+                alt=""
+              />
+              <div>
+                <div>
+                  <p>{comment.username}</p>
+                  <p>
+                    @{comment.username.replace(/\s+/g, "").toLowerCase()} ·{" "}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
