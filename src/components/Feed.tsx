@@ -9,6 +9,7 @@ interface Feed {
 }
 
 const Feed = ({ tweets }: Props) => {
+  // console.log(tweets);
   return (
     <div>
       <div className="flex items-center justify-between">
