@@ -1,5 +1,5 @@
-import React from "react";
-import { Tweet } from "../../typings";
+import React, { useState, useEffect } from "react";
+import { Comment, Tweet } from "../../typings";
 import TimeAgo from "react-timeago";
 import {
   ArrowsRightLeftIcon,
@@ -7,12 +7,27 @@ import {
   ChatBubbleLeftRightIcon,
   HeartIcon,
 } from "@heroicons/react/24/outline";
+import { fetchComments } from "../../utils/fetchComments";
 
 interface Props {
   tweet: Tweet;
 }
 
 const Tweet = ({ tweet }: Prop) => {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  const refreshComments = async () => {
+    const comments: Comment[] = await fetchComments(tweet._id);
+    setComments(comments);
+  };
+
+  // when the component mounts
+  useEffect(() => {
+    refreshComments();
+  }, []);
+
+  // console.log(comments);
+
   return (
     <div className="flex flex-col space-x-3 border-y border-gray-100 p-5">
       <div className=" flex space-x-3">
