@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { groq } from "next-sanity";
 import { sanityClient } from "../../sanity";
 import { Tweet } from "../../typings";
-import { groq } from "next-sanity";
 
 // http://localhost:3002/api/getTweets
 // backend api endpoint

@@ -10,8 +10,11 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import SidebarRow from "./SidebarRow";
+import { signOut, signIn, useSession } from "next-auth/react";
 
 const Sidebar = () => {
+  const { data: session } = useSession(); // rename property data => session
+
   const items = [
     { icon: HomeIcon, title: "Home" },
     { icon: HashtagIcon, title: "Explore" },
@@ -19,7 +22,11 @@ const Sidebar = () => {
     { icon: EnvelopeIcon, title: "Messages" },
     { icon: BookmarkIcon, title: "Bookmarks" },
     { icon: InboxStackIcon, title: "Lists" },
-    { icon: UserIcon, title: "Sign In" },
+    {
+      icon: UserIcon,
+      title: session ? "Sign Out" : "Sign In",
+      onClick: session ? signOut : signIn,
+    },
     { icon: EllipsisHorizontalCircleIcon, title: "More" },
   ];
   return (
